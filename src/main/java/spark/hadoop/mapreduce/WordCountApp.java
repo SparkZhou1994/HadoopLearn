@@ -1,6 +1,7 @@
 package spark.hadoop.mapreduce;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
 import org.apache.hadoop.io.Text;
@@ -55,6 +56,13 @@ public class WordCountApp {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         Configuration configuration = new Configuration();
+        //清除输出文件
+        Path path = new Path(args[1]);
+        FileSystem fileSystem = FileSystem.get(configuration);
+        if(fileSystem.exists(path)) {
+            fileSystem.delete(path, true);
+            System.out.println("Output file exists,but it has been deleted");
+        }
         Job job = Job.getInstance(configuration, "wordcount");
         //设置job处理类
         job.setJarByClass(WordCountApp.class);
