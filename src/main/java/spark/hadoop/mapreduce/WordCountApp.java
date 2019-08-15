@@ -76,6 +76,9 @@ public class WordCountApp {
         job.setReducerClass(MyReducer.class);
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(LongWritable.class);
+        //通过job设置combiner处理类,其实逻辑上和我们的reducer是一模一样的
+        //combiner 只适用于求和
+        job.setCombinerClass(MyReducer.class);
         //设置作业处理的输出路径
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
