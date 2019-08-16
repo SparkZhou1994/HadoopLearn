@@ -10,6 +10,7 @@
     <modules>
         <module>hadoop-learn-javaapi</module>
         <module>hadoop-learn-spring</module>
+        <module>hadoop-learn-springboot</module>
     </modules>
     <packaging>pom</packaging>
     <name>hadoop-learn</name>
