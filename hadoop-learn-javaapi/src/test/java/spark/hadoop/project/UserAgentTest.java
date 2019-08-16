@@ -4,7 +4,6 @@ import com.kumkee.userAgent.UserAgent;
 import com.kumkee.userAgent.UserAgentParser;
 import org.apache.commons.lang.StringUtils;
 import org.junit.Test;
-import sun.management.resources.agent;
 
 import java.io.BufferedReader;
 import java.io.File;
