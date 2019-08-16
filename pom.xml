@@ -9,6 +9,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>hadoop-learn-javaapi</module>
+        <module>hadoop-learn-spring</module>
     </modules>
     <packaging>pom</packaging>
     <name>hadoop-learn</name>
