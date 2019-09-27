@@ -1,0 +1,70 @@
+﻿关闭防火墙
+/etc/init.d/iptables stop
+service iptables stop
+chkconfig iptables off
+
+---------------------------------------------------
+core-site.xml
+<configuration>
+	<property>
+		<name>fs.defaultFS</name>
+		<value>hdfs://hadoop0:8020</value>
+	</property>
+	<property>
+		<name>hadoop.tmp.dir</name>
+		<value>/home/hadoop0/tmp</value>
+	</property>
+</configuration>
+
+hdfs-site.xml
+<configuration>
+	<property>
+		<name>dfs.replication</name>
+		<value>1</value>
+	</property>
+</configuration>
+----------------------------------------------------
+
+打开 jobhistory
+mapred-site.xml
+<property>
+	<name>mapreduce.jobhistory.address</name>
+	<value>hadoop0:10020</value>
+	<description>MapReduce JobHistory Server IPC host:port</description>
+</property>
+<property>
+	<name>mapreduce.jobhistory.webapp.address</name>
+	<value>hadoop0:19888</value>
+	<description>MapReduce JobHistory Server Web UI host:port</description>
+</property>
+<property>
+	<name>mapreduce.jobhistory.done-dir</name>
+	<value>/history/done</value>
+</property>
+<property>
+	<name>mapreduce.jobhistory.intermediate-done-dir</name>
+	<value>/history/done_intermediate</value>
+</property>
+yarn-site.xml
+<property>
+	<name>yarn.log-aggregation-enable</name>
+	<value>true</value>
+</property>
+
+--------------------------------------------------
+
+分布式搭建(在hadoop0基础上添加)
+yarn-site.xml
+<property>
+	<name>yarn.resourcemanager.hostname</name>
+	<value>hadoop0</value>
+</property>
+------------------------------------------------
+
+slaves
+hadoop0
+hadoop1
+hadoop2
+------------------------------------------------
+spark_compile
+https://zhuanlan.zhihu.com/p/33725306
