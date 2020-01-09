@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
     <artifactId>hadoop-learn-spring</artifactId>
     <name>hadoop-learn-spring</name>
+    <description>Imooc Course For Hadoop</description>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 

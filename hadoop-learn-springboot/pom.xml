@@ -12,6 +12,7 @@
     <artifactId>hadoop-learn-springboot</artifactId>
 
     <name>hadoop-learn-springboot</name>
+    <description>Imooc Course For Hadoop</description>
     <!-- FIXME change it to the project's website -->
     <url>http://www.example.com</url>
 
